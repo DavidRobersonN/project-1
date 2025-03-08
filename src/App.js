@@ -1,43 +1,29 @@
 import './App.css';
 import { Component } from 'react';
+import {loadPosts} from './utils/load-posts';
+import { Posts } from './components/Posts';
 
 class App extends Component {
   state = {
-    posts: [
-
-    ]
+    posts: []
   };
 
-  componentDidMount() {
-    this.loadPosts();
+  async componentDidMount() { // ComponentDidMount é o a função que vai executar, quando os dados acabarem de ser executados
+    await this.loadPosts();
   }
 
-  loadPosts = async () => {
-    const postResponse = fetch('https://jsonplaceholder.typicode.com/posts');
-
-    const [posts] = await Promise.all([postResponse]);
-
-    const postsJson = await posts.json();
-
-    this.setState({ posts: postsJson});
-    
+  loadPosts = async () => {  // Carregando os dados que foram obitidos na const postAndPhotos, e setando o estado com esses dados prontos
+    const postAndPhotos = await loadPosts(); 
+    this.setState({ posts: postAndPhotos });
   }
 
+  
   render() {
     const { posts } = this.state;
 
     return (
-      <section className='container'>
-      <div className="posts">
-        {posts.map(post => (
-          <div className='post'>
-            <div key={post.id} className='post-content'>
-              <h1>{post.title}</h1>
-              <p>{post.body}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <section className='container'>
+      <Posts posts={posts} />
     </section>
     );
   }
