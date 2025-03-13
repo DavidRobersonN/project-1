@@ -1,5 +1,4 @@
 import './styles.css';
-// Precisa ser uma classe ou uma função que retorne um metodo render
 
 export const PostCard = ({title, cover, body, id}) => (
   <div className='post'>
