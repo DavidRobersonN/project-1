@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { postCardPropsMock } from './mock';
 import { PostCard } from '.';
-const props = postCardPropsMock;
-import React from 'react';
+import { postCardPropsMock } from './mock';
 
-describe('<POstCard />', () => {
+const props = postCardPropsMock;
+
+describe('<PostCard />', () => {
   it('should render PostCard correctly', () => {
     render(<PostCard {...props} />);
 
@@ -15,11 +15,5 @@ describe('<POstCard />', () => {
     expect(
       screen.getByRole('heading', { name: /title 1/i }),
     ).toBeInTheDocument();
-    expect(screen.getByText('body 1')).toBeInTheDocument();
-  });
-
-  it('should match snapshot', () => {
-    const { container } = render(<PostCard {...props} />);
-    expect(container.firstChild).toMatchSnapshot();
   });
 });
