@@ -1,7 +1,6 @@
 import P from 'prop-types';
 import './styles.css';
-import React from "react";
-
+import React from 'react';
 
 import { Component } from 'react';
 
@@ -25,4 +24,4 @@ Button.propTypes = {
   text: P.string.isRequired,
   onClick: P.func.isRequired,
   disabled: P.bool,
-}
+};

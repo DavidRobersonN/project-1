@@ -1,6 +1,6 @@
 import P from 'prop-types';
 import './styles.css';
-import React from "react";
+import React from 'react';
 
 import { PostCard } from '../postCard';
 
@@ -25,9 +25,11 @@ Posts.defaultProps = {
 Posts.propTypes = {
   posts: P.arrayOf(
     P.shape({
+      // Shape significa "a forma" ou seja a forma dos meu elementos
       title: P.string.isRequired,
       cover: P.string.isRequired,
       body: P.string.isRequired,
       id: P.number.isRequired,
-  }))
+    }),
+  ),
 };

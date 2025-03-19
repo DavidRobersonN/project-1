@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Posts } from '.';
-import React from "react";
-
+import React from 'react';
 
 const props = {
   posts: [

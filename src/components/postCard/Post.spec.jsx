@@ -2,8 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { postCardPropsMock } from './mock';
 import { PostCard } from '.';
 const props = postCardPropsMock;
-import React from "react";
-
+import React from 'react';
 
 describe('<POstCard />', () => {
   it('should render PostCard correctly', () => {

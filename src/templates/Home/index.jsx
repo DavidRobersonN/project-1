@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './styles.css';
-import React from "react";
+import React from 'react';
 
 import { Posts } from '../../components/Posts';
 import { loadPosts } from '../../utils/load-posts';

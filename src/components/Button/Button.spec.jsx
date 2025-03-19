@@ -1,12 +1,11 @@
-import { fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '.';
-import React from "react";
-
+import React from 'react';
 
 describe('Button />', () => {
   it('should render the button with the text "load more"', () => {
     const fn = jest.fn();
-    render(<Button text="load more" disabled={false} onClick={fn} />,);
+    render(<Button text="load more" disabled={false} onClick={fn} />);
 
     expect.assertions(1); // espera que aja uma asserção
 
@@ -14,11 +13,10 @@ describe('Button />', () => {
     expect(button).toBeInTheDocument(); // Espero que esse botao esteja no documento ou seja, houve uma asserção
   });
 
-
   it('should call function on button click', () => {
     // Deve chamar a  função quando clicar no Botao
     const fn = jest.fn();
-    render(<Button text="load more" disabled={false} onClick={fn} />,);
+    render(<Button text="load more" disabled={false} onClick={fn} />);
 
     const button = screen.getByRole('button', { name: /load more/i }); // Capiturando o botao
 
@@ -28,10 +26,9 @@ describe('Button />', () => {
     expect(fn).toHaveBeenCalledTimes(2); // passando quantas vezes esperamos que o botao seja chamado
   });
 
-
   it('should be disabled when disabled is true"', () => {
     const fn = jest.fn();
-    render(<Button text="load more" disabled={true} onClick={fn} />,);
+    render(<Button text="load more" disabled={true} onClick={fn} />);
 
     const button = screen.getByRole('button', { name: /load more/i }); //screen.getByRole capturando o botao /load more/i é uma expressao regular que serve para caso eu digitar com letras minusculas, conseguir detectar
 
@@ -40,7 +37,7 @@ describe('Button />', () => {
 
   it('should be enabled when disabled is false"', () => {
     const fn = jest.fn();
-    render(<Button text="load more" disabled={false} onClick={fn} />,);
+    render(<Button text="load more" disabled={false} onClick={fn} />);
 
     const button = screen.getByRole('button', { name: /load more/i }); //screen.getByRole capturando o botao /load more/i é uma expressao regular que serve para caso eu digitar com letras minusculas, conseguir detectar
 
