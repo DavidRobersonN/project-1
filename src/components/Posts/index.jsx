@@ -1,7 +1,6 @@
 import P from 'prop-types';
-import './styles.css';
-import React from 'react';
 
+import './styles.css';
 import { PostCard } from '../postCard';
 
 export const Posts = ({ posts = [] }) => (

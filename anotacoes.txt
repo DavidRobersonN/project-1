@@ -1,0 +1,6 @@
+Comando Antigo	Comando Novo (Vite)
+npm start	npm run dev
+npm run build	npm run build
+npm test	npm run test
+npm test -- --coverage	npm run coverage
+npx eslint . --fix 	npm run lint
