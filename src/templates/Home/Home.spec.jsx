@@ -87,10 +87,16 @@ describe('<Home />', () => {
 
     // Utilizando userEvent para simular que ao digitar nossa busca teremos os seguintes resultados
     const user = userEvent.setup();
-    await user.type(search, 'Title2');
+    await user.type(search, 'Title 2');
     await waitFor(() => {
       // Precisei usar await, pois estava tendo problemas com resultados assíncronos
       expect(screen.queryByRole('heading', { name: /Title 1/i })).not.toBeInTheDocument(); // Ao utilizar .not.toBe... Precisa usar queryByRole, pois getByRole lança um erro se o elemento não for encontrado, o que faz o teste falhar antes mesmo de chegar à asserção
+    });
+
+    // Digitando algo que nao vai aparecer, para verificar se "nossa mensagem vai aparecer na tela"
+    await user.type(search, 'Post does not exist');
+    await waitFor(() => {
+      expect(screen.getByText('Não existem posts')); // Utilizasse byText para capturar o texto
     });
   });
 });

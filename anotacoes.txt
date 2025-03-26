@@ -1,4 +1,5 @@
 Comando Antigo	Comando Novo (Vite)
+
 npm start	npm run dev
 npm run build	npm run build
 npm test	npm run test
